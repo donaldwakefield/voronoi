@@ -1,0 +1,7 @@
+We need
+
+- priority queue: try using std::priority_queue<> for the time being
+  - a class which represents an Event, the base class for objects which can be put into the queue
+  - derived classes for SiteEvent and CircleEvent
+- a balanced binary tree, with interior nodes and leaves having significant values: research (buy or build ;^)~ )
+- a DCEL, enhanced with additional tracking
