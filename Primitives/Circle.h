@@ -23,10 +23,12 @@ public:
    ~Circle() {};
 
    bool valid() { return true; }
+   double mimimum() { return minimum_; }
 
 private:
 
-   Site a_;
-   Site b_;
-   Site c_;
+   Site   a_;
+   Site   b_;
+   Site   c_;
+   double minimum_;
 };

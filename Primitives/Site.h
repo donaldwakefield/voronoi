@@ -19,6 +19,9 @@ public:
    explicit Site(double x, double y) : x_(x), y_(y) {};
    ~Site() {};
 
+   double xOrd() { return x_; }
+   double yOrd() { return y_; }
+
 private:
 
    double x_;
