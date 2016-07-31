@@ -12,5 +12,5 @@ public:
   Event() {};
   virtual ~Event() {}
 
-  virtual double sweepOrder() = 0;
+  virtual double sweepOrder() const = 0;
 };

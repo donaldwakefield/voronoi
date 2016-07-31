@@ -13,7 +13,7 @@ public:
  SiteEvent(const Site &site) : site_(site) {};
    virtual ~SiteEvent() {}
 
-   virtual double sweepOrder() { return site_.yOrd(); }
+   virtual double sweepOrder() const { return site_.yOrd(); }
 
 private:
 

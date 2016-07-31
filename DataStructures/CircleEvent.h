@@ -13,7 +13,7 @@ public:
    CircleEvent(const Circle &circle) : circle_(circle) {};
    virtual ~CircleEvent() {};
 
-   virtual double sweepOrder() { return circle_.minimum(); }
+   virtual double sweepOrder() const { return circle_.minimum(); }
 
 private:
 
