@@ -2,6 +2,10 @@
 
 #include <Site.h>
 
+// We will use our /usr/local/lib boost install for prototyping
+//
+#include <boost/noncopyable.hpp>
+
 /*!
  * \class Circle is represented by three sites. It will likely be
  *        changed to refer to Sites outside itself, but this gets us
