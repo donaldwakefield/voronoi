@@ -7,7 +7,7 @@ INCDIRS := -I. -I../DataStructures $(BOOST_INCLUDES)
 
 all:
 	g++ -DBOOST_TEST_DYN_LINK $(INCDIRS) $(BOOST_LIBDIR) -lboost_unit_test_framework-mt -o test test.cxx
-	test
+	./test || [ $$? -eq 0 ] 
 
 clean:
 	@rm test
