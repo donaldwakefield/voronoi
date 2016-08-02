@@ -1,9 +1,10 @@
+#define BOOST_TEST_MODULE VoronoiTest
+
+#include <boost/test/included/unit_test.hpp>
+
 #include <EventQueue.h>
 
-#include <iostream>
-
-int main()
+BOOST_AUTO_TEST_CASE(first_test)
 {
-   std::cout << "Testing..." << std::endl;
-   return 0;
+   BOOST_CHECK(1);
 }
