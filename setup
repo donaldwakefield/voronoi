@@ -1,0 +1,5 @@
+setenv BOOST_HOME /project/dsm/cicd/icf_wg_server/fw_ic/boost/exports.v1-43_0-0-1_engr-$VCO/mgc_home
+setenv BOOST_INCDIRS $BOOST_HOME/shared/pkgs/boost_inhouse.$VCO/boost_ext/include/boost
+setenv BOOST_INCLUDES -isystem$BOOST_INCDIRS
+setenv BOOST_LIBDIR -L$BOOST_HOME/pkgs/boost.$VCO/lib
+setenv LD_LIBRARY_PATH /project/dsm/cicd/icf_wg_server/fw_ic/boost/exports.v1-43_0-0-1_engr-aoi/mgc_home/pkgs/boost.aoi/lib
