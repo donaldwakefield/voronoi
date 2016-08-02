@@ -1,9 +1,5 @@
 #pragma once
 
-// We will use our /usr/local/lib boost install for prototyping
-//
-#include <boost/noncopyable.hpp>
-
 /*!
  * \class Site represents a single point in the Voronoi
  *        diagram. Coordinates are in real number units.
@@ -12,15 +8,15 @@
  *        or indeed default construction, as these will likely be
  *        going into the priority queue by value...
  */
-class Site : private boost::noncopyable
+class Site
 {
 public:
 
    explicit Site(double x, double y) : x_(x), y_(y) {};
    ~Site() {};
 
-   double xOrd() { return x_; }
-   double yOrd() { return y_; }
+   double xOrd() const { return x_; }
+   double yOrd() const { return y_; }
 
 private:
 

@@ -6,10 +6,10 @@
 
 struct EventLessThan
 {
-   bool operator()(const Event &lhs, const Event &rhs)
+   bool operator()(const EventPtr &lhs, const EventPtr &rhs)
    {
-       return lhs.sweepOrder() < rhs.sweepOrder();
+       return lhs->sweepOrder() < rhs->sweepOrder();
    }
 };
 
-typedef std::priority_queue<Event, std::vector<Event>, EventLessThan> Queue;
+typedef std::priority_queue<EventPtr, std::vector<EventPtr>, EventLessThan> EventQueue;

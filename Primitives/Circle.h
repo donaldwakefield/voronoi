@@ -2,10 +2,6 @@
 
 #include <Site.h>
 
-// We will use our /usr/local/lib boost install for prototyping
-//
-#include <boost/noncopyable.hpp>
-
 /*!
  * \class Circle is represented by three sites. It will likely be
  *        changed to refer to Sites outside itself, but this gets us
@@ -19,15 +15,17 @@
  *        this design, so the constructor is probably not the right
  *        place to do this. A predicate method is more likely.
  */
-class Circle : private boost::noncopyable
+class Circle
 {
 public:
 
-   explicit Circle(const Site &a, const Site &b, const Site &c) : a_(a), b_(b), c_(c) {};
+   explicit Circle(const Site &a, const Site &b, const Site &c) :
+      a_(a), b_(b), c_(c), minimum_(-1000000) // TODO: calculate correct minimum
+      {};
    ~Circle() {};
 
-   bool valid() { return true; }
-   double mimimum() { return minimum_; }
+   bool valid() const { return true; }
+   double minimum() const { return minimum_; }
 
 private:
 
