@@ -1,0 +1,56 @@
+Ignoring numerical stability, we work from the formula for a circle:
+
+   (x-h)^2 + (y-k)^2 = r^2
+
+Multiplied out, relabeling, we get the general form:
+
+   x^2 + y^2 + Cx + Dy + E = 0   // radius elided
+
+   http://www.regentsprep.org/regents/math/algtrig/atc1/circlelesson.htm
+   "x^2 + y^2 + Cx + Dy + E = 0"
+
+When we plug in any of the three points we get some constants
+which we add together and represent as N1 for the first point, N2
+for the second, etc.:
+
+   N1 + C(x1) + D(y1) + E = 0
+   N2 + C(x2) + D(y2) + E = 0
+   N3 + C(x3) + D(y3) + E = 0
+
+where (x1,y1) is one of the points on the perimeter, hence a
+constant.
+
+This system of three equations can then be solved by Cramer's
+Rule:
+
+Denominator of C, D and E is
+
+   x1*y2 + x3*y1 + x2*y3
+ - x3*y2 - x1*y3 - x2*y1
+
+Numerator of C is
+
+   -N1*y2 + -N3*y1 + -N2*y3
+- (-N3)*y2 - (-N1)*y3 - (-N2)*y1
+
+or
+
+    N3*y2 + N1*y3 + N2*y1
+  - N1*y2 - N3*y1 - N2*y3
+
+D determinant numerator
+
+  | x1   -N1   1 |
+  | x2   -N2   1 |
+  | x3   -N3   1 |
+
+E determinant numerator
+
+  | x1   y1   -N1 |
+  | x2   y2   -N2 |
+  | x3   y3   -N3 |
+
+More references
+
+  http://www.purplemath.com/modules/determs2.htm
+  https://en.wikipedia.org/wiki/Cramer's_rule
