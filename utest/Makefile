@@ -7,5 +7,6 @@ all:
 	g++ -DBOOST_TEST_DYN_LINK $(INCDIRS) $(BOOST_LIBDIR) -lboost_unit_test_framework -o test test.cxx
 	./test
 
+.PHONY : clean
 clean:
-	@rm test
+	-rm test >& /dev/null
