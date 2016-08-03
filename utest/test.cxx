@@ -12,7 +12,7 @@
 
 BOOST_AUTO_TEST_CASE(first_test)
 {
-   double feedStock[] = { 6, 7, 0, 1, 4, 5, 8, 9, 2, 3 };
+   double feedStock[] = { 6, 7, 0, 1, 4, 1, 8, 9, 2, 3 };
    std::vector<Site> siteVec;
    for (uint32_t i = 0; i < 9; i += 2) {
       siteVec.push_back(Site(feedStock[i], feedStock[i+1]));
@@ -24,7 +24,7 @@ BOOST_AUTO_TEST_CASE(first_test)
       eq.push(EventPtr(new SiteEvent(*iter)));
    }
 
-   Circle circle(siteVec[0], siteVec[1], siteVec[2]);
+   Circle circle(siteVec[1], siteVec[4], siteVec[2]);
    eq.push(EventPtr(new CircleEvent(circle)));
 
    EventPtr currPtr = eq.top();
@@ -36,11 +36,11 @@ BOOST_AUTO_TEST_CASE(first_test)
 
    eq.pop();
    currPtr = eq.top();
-   BOOST_REQUIRE(currPtr->sweepOrder() == 5);
+   BOOST_REQUIRE(currPtr->sweepOrder() == 3);
 
    eq.pop();
    currPtr = eq.top();
-   BOOST_REQUIRE(currPtr->sweepOrder() == 3);
+   BOOST_REQUIRE(currPtr->sweepOrder() == 1);
 
    eq.pop();
    currPtr = eq.top();
