@@ -8,7 +8,13 @@ struct EventLessThan
 {
    bool operator()(const EventPtr &lhs, const EventPtr &rhs)
    {
-       return lhs->sweepOrder() < rhs->sweepOrder();
+      return (
+               (lhs->sweepOrder() < rhs->sweepOrder()) ||
+               (
+                  (lhs->sweepOrder() == rhs->sweepOrder()) &&
+                  (lhs->xLocation() < rhs->xLocation())
+               )
+             );
    }
 };
 

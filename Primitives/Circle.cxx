@@ -20,6 +20,8 @@ Circle::Circle(const Site &a, const Site &b, const Site &c) :
 
 bool Circle::valid() const
 {
+   // quick and dirty delta is good enough for my simple exercise.
+   //
    const double delta(0.0001);
 
    double ax = a_.xOrd(), ay = a_.yOrd();
@@ -88,7 +90,7 @@ void Circle::ensureMonotonicity()
 
 void Circle::calculateCenter()
 {
-   // TODO: dirty Cramer's Rule approach...
+   // inaccurate Cramer's Rule approach...
 
 #ifdef DEBUG
    std::cout << "calculateCenter():" << std::endl;
@@ -112,8 +114,8 @@ void Circle::calculateCenter()
 #endif
 
    double denom = ax*by + ay*cx + bx*cy - cx*by - cy*ax - bx*ay;
-   double cnum = n1*by + ay*n3 + n2*cy - n3*by - cy*n1 - n2*ay;
-   double dnum = ax*n2 + n1*cx + bx*n3 - cx*n2 - n3*ax - bx*n1;
+   double cnum  = n1*by + ay*n3 + n2*cy - n3*by - cy*n1 - n2*ay;
+   double dnum  = ax*n2 + n1*cx + bx*n3 - cx*n2 - n3*ax - bx*n1;
 
    double C = cnum/denom;
    double D = dnum/denom;

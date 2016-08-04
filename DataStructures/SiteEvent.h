@@ -14,6 +14,7 @@ public:
    virtual ~SiteEvent() {}
 
    virtual double sweepOrder() const { return site_.yOrd(); }
+   virtual double xLocation() const { return site_.xOrd(); }
 
 private:
 

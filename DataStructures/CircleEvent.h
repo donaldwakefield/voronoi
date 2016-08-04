@@ -14,6 +14,7 @@ public:
    virtual ~CircleEvent() {};
 
    virtual double sweepOrder() const { return circle_.minimum(); }
+   virtual double xLocation() const { return circle_.centerX(); }
 
 private:
 

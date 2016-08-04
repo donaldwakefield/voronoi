@@ -11,10 +11,11 @@ class Event
 {
 public:
 
-  Event() {};
-  virtual ~Event() {}
+   Event() {};
+   virtual ~Event() {}
 
-  virtual double sweepOrder() const = 0;
+   virtual double sweepOrder() const = 0;
+   virtual double xLocation() const = 0;
 };
 
 typedef boost::shared_ptr<Event> EventPtr;
