@@ -19,18 +19,28 @@ class Circle
 {
 public:
 
-   explicit Circle(const Site &a, const Site &b, const Site &c) :
-      a_(a), b_(b), c_(c), minimum_(-1000000) // TODO: calculate correct minimum
-      {};
+   explicit Circle(const Site &a, const Site &b, const Site &c);
    ~Circle() {};
 
-   bool valid() const { return true; }
-   double minimum() const { return minimum_; }
+   bool valid() const;
+   double minimum() const;
+
+   double centerX() const { return h_; }
+   double centerY() const { return k_; }
+   double radius() const { return radius_; }
 
 private:
 
+   void ensureMonotonicity();
+   void calculateCenter();
+   void calculateRadius();
+
+private:
+   
    Site   a_;
    Site   b_;
    Site   c_;
-   double minimum_;
+
+   double h_, k_;   // ordinates of calculated center
+   double radius_;
 };

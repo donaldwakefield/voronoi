@@ -25,6 +25,8 @@ BOOST_AUTO_TEST_CASE(first_test)
    }
 
    Circle circle(siteVec[1], siteVec[4], siteVec[2]);
+   std::cout << "Circle center is (" << circle.centerX() << ", " << circle.centerY() << ") with radius " << circle.radius() << std::endl;
+
    eq.push(EventPtr(new CircleEvent(circle)));
 
    EventPtr currPtr = eq.top();
@@ -48,7 +50,16 @@ BOOST_AUTO_TEST_CASE(first_test)
 
    eq.pop();
    BOOST_CHECK(!eq.empty());
-   currPtr = eq.top();
-   // This will change when we fix Circle minimum() method.
-   BOOST_REQUIRE(currPtr->sweepOrder() == -1000000);
+   eq.pop();
+   BOOST_REQUIRE(eq.empty());
+}
+
+BOOST_AUTO_TEST_CASE(second_test)
+{
+   Site a(0, 1);
+   Site b(1,2);
+   Site c(2,1);
+
+   Circle circle(a, b, c);
+   std::cout << "Circle center is (" << circle.centerX() << ", " << circle.centerY() << ") with radius " << circle.radius() << std::endl;
 }
