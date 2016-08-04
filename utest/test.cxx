@@ -26,6 +26,7 @@ BOOST_AUTO_TEST_CASE(first_test)
 
    Circle circle(siteVec[1], siteVec[4], siteVec[2]);
    std::cout << "Circle center is (" << circle.centerX() << ", " << circle.centerY() << ") with radius " << circle.radius() << std::endl;
+   BOOST_REQUIRE(circle.valid());
 
    eq.push(EventPtr(new CircleEvent(circle)));
 
@@ -61,5 +62,6 @@ BOOST_AUTO_TEST_CASE(second_test)
    Site c(2,1);
 
    Circle circle(a, b, c);
+   BOOST_REQUIRE(circle.valid());
    std::cout << "Circle center is (" << circle.centerX() << ", " << circle.centerY() << ") with radius " << circle.radius() << std::endl;
 }

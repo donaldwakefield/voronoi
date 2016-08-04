@@ -1,6 +1,9 @@
 # Emacs temp files
 *~
 
+# unit tests all adopt same name
+uTest
+
 # Compiled Object files
 *.slo
 *.lo

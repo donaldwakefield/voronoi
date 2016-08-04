@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 /*!
  * \class Site represents a single point in the Voronoi
  *        diagram. Coordinates are in real number units.
@@ -17,6 +19,11 @@ public:
 
    double xOrd() const { return x_; }
    double yOrd() const { return y_; }
+
+   friend std::ostream &operator<<(std::ostream &os, const Site &site) {
+      os << "Site(" << site.xOrd() << "," << site.yOrd() << ")" << std::endl;
+      return os;
+   }
 
 private:
 
