@@ -26,8 +26,12 @@ bool Circle::valid() const
    double xdist = h_ - ax;
    double ydist = k_ - ay;
    double test_radius = sqrt(xdist*xdist + ydist*ydist);
-   if (fabs(radius_ - test_radius) > delta) {
-      std::cerr << "radius " << radius_ << " differs too much from point a " << test_radius << std::endl;
+   if (fabs(radius_ - test_radius) > delta)
+   {
+#ifdef DEBUG
+      std::cerr << "radius " << radius_
+                << " differs too much from point a " << test_radius << std::endl;
+#endif
       return false;
    }
 
@@ -35,8 +39,12 @@ bool Circle::valid() const
    xdist = h_ - bx;
    ydist = k_ - by;
    test_radius = sqrt(xdist*xdist + ydist*ydist);
-   if (fabs(radius_ - test_radius) > delta) {
-      std::cerr << "radius " << radius_ << " differs too much from point b " << test_radius << std::endl;
+   if (fabs(radius_ - test_radius) > delta)
+   {
+#ifdef DEBUG
+      std::cerr << "radius " << radius_
+                << " differs too much from point b " << test_radius << std::endl;
+#endif
       return false;
    }
 
@@ -44,8 +52,12 @@ bool Circle::valid() const
    xdist = h_ - cx;
    ydist = k_ - cy;
    test_radius = sqrt(xdist*xdist + ydist*ydist);
-   if (fabs(radius_ - test_radius) > delta) {
-      std::cerr << "radius " << radius_ << " differs too much from point c " << test_radius << std::endl;
+   if (fabs(radius_ - test_radius) > delta)
+   {
+#ifdef DEBUG
+      std::cerr << "radius " << radius_
+                << " differs too much from point c " << test_radius << std::endl;
+#endif
       return false;
    }
 
@@ -78,10 +90,12 @@ void Circle::calculateCenter()
 {
    // TODO: dirty Cramer's Rule approach...
 
+#ifdef DEBUG
    std::cout << "calculateCenter():" << std::endl;
    std::cout << "  point a_: " << a_ << std::endl;
    std::cout << "  point b_: " << b_ << std::endl;
    std::cout << "  point c_: " << c_ << std::endl;
+#endif
 
    double ax = a_.xOrd(), ay = a_.yOrd();
    double bx = b_.xOrd(), by = b_.yOrd();
@@ -91,22 +105,26 @@ void Circle::calculateCenter()
    double n2 = -(bx*bx + by*by);
    double n3 = -(cx*cx + cy*cy);
 
+#ifdef DEBUG
    std::cout << "  n1: " << n1 << std::endl;
    std::cout << "  n2: " << n2 << std::endl;
    std::cout << "  n3: " << n3 << std::endl;
+#endif
 
    double denom = ax*by + ay*cx + bx*cy - cx*by - cy*ax - bx*ay;
-   double cnum = n1*by + ay*n3 + n2*cy - n3*by - cy*n1 - bx*ay;
+   double cnum = n1*by + ay*n3 + n2*cy - n3*by - cy*n1 - n2*ay;
    double dnum = ax*n2 + n1*cx + bx*n3 - cx*n2 - n3*ax - bx*n1;
 
    double C = cnum/denom;
    double D = dnum/denom;
 
+#ifdef DEBUG
    std::cout << "  denom: " << denom << std::endl;
    std::cout << "  cnum:  " << cnum << std::endl;
    std::cout << "  dnum:  " << dnum << std::endl;
    std::cout << "  C:     " << C << std::endl;
    std::cout << "  D:     " << D << std::endl;
+#endif
 
    h_ = C / -2.0;
    k_ = D / -2.0;
