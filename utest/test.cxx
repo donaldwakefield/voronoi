@@ -7,6 +7,7 @@
 #include <Site.h>
 #include <SiteEvent.h>
 #include <EventQueue.h>
+#include <SiteVec.h>
 
 #include <iostream>
 
@@ -70,4 +71,11 @@ BOOST_AUTO_TEST_CASE(second_test)
    std::cout << "Circle center is (" << circle.centerX() << ", " << circle.centerY()
              << ") with radius " << circle.radius() << std::endl;
 #endif
+}
+
+BOOST_AUTO_TEST_CASE(third_test)
+{
+  SiteSet siteSet;
+  siteSet.writeSites();
+  BOOST_REQUIRE(true);
 }
