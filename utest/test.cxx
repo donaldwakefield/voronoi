@@ -8,6 +8,7 @@
 #include <SiteEvent.h>
 #include <EventQueue.h>
 #include <SiteVec.h>
+#include <Voronoi.h>
 
 #include <iostream>
 
@@ -75,7 +76,11 @@ BOOST_AUTO_TEST_CASE(second_test)
 
 BOOST_AUTO_TEST_CASE(third_test)
 {
-  SiteSet siteSet;
-  siteSet.writeSites();
+  SiteVec siteVec;
+  fillSiteVec(siteVec);
+
+  Voronoi vor(siteVec);
+  vor.outputSVG();
+
   BOOST_REQUIRE(true);
 }

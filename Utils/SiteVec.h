@@ -4,18 +4,24 @@
 
 #include <vector>
 
-class SiteSet
-{
-public:
-  typedef std::vector<Site> Set;
-  typedef Set::iterator     SetIter;
+typedef std::vector<Site> SiteVec;
+typedef SiteVec::iterator SiteVecIter;
 
-  SiteSet();
-  ~SiteSet();
+void fillSiteVec(SiteVec &sites);
 
-  void writeSites();
+/* class SiteVec */
+/* { */
+/* public: */
+/*   typedef std::vector<Site> Set; */
+/*   typedef Set::iterator     SetIter; */
 
-private:
+/*   SiteVec(); */
+/*   ~SiteVec(); */
 
-  Set set_;
-};
+/*   void writeSites(); */
+/*   Set &getVec() { return set_; } */
+
+/* private: */
+
+/*   Set set_; */
+/* }; */
