@@ -1,6 +1,7 @@
 #include <Voronoi.h>
 
 #include <stdint.h>
+#include <iostream>
 #include <fstream>
 
 Voronoi::Voronoi(const SiteVec &sites) :
@@ -9,9 +10,9 @@ Voronoi::Voronoi(const SiteVec &sites) :
 {
 }
 
-void Voronoi::outputSVG()
+void Voronoi::outputSVG(const std::string &path)
 {
-   std::ofstream os("./svgTest.html");
+   std::ofstream os(path.c_str());
 
    os << "<!DOCTYPE html>" << std::endl << std::endl;
 
@@ -28,10 +29,9 @@ void Voronoi::outputSVG()
    SiteVecIter iter, e_iter = sites_.end();
    for (iter = sites_.begin(); iter != e_iter; ++iter)
    {
-      // <circle cx="200" cy="400" r="4" stroke="black" stroke-width="3" fill="red" />
       os << "<circle cx=\"" << static_cast<uint32_t>(iter->xOrd())
-	 <<      "\" cy=\"" << static_cast<uint32_t>(iter->yOrd())
-	 << "\" r=\"4\" stroke=\"black\" stroke-width=\"3\" fill=\"red\" />" << std::endl;
+         <<      "\" cy=\"" << static_cast<uint32_t>(iter->yOrd())
+         << "\" r=\"4\" stroke=\"black\" stroke-width=\"3\" fill=\"red\" />" << std::endl;
    }
 
    os << "</svg>" << std::endl;

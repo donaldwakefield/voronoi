@@ -80,11 +80,12 @@ BOOST_AUTO_TEST_CASE(third_test)
   fillSiteVec(siteVec);
 
   Voronoi vor(siteVec);
-  vor.outputSVG();
+  vor.outputSVG("svgTest.html");
 
   siteVec.clear();
   fillCircularSiteVec(siteVec);
   Voronoi vor2(siteVec);
+  vor2.outputSVG("svgCircTest.html");
 
   BOOST_REQUIRE(true);
 }

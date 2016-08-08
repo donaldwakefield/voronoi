@@ -8,12 +8,13 @@ class Voronoi
 {
 public:
 
-  Voronoi(const SiteVec &sites);
-  ~Voronoi() {};
+   Voronoi(const SiteVec &sites);
+   ~Voronoi() {};
 
-  void outputSVG();
+   void outputSVG(const std::string &path);
 
 private:
-  SiteVec    sites_;
-  EventQueue eq_;
+
+   SiteVec    sites_;
+   EventQueue eq_;
 };
