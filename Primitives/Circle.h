@@ -34,6 +34,8 @@ private:
    Site   b_;
    Site   c_;
 
+   bool   badCandidate_;  // upward facing circles don't contribute events...
+
    double h_, k_;   // ordinates of calculated center
    double radius_;
 };

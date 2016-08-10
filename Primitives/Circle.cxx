@@ -6,20 +6,35 @@
 #include <iostream>
 
 Circle::Circle(const Site &a, const Site &b, const Site &c) :
-  a_(a),
-  b_(b),
-  c_(c),
-  h_(0),
-  k_(0),
-  radius_(1000000)
+   a_(a),
+   b_(b),
+   c_(c),
+   badCandidate_(false),
+   h_(0),
+   k_(0),
+   radius_(1000000)
 {
-  ensureMonotonicity();
-  calculateCenter();
-  calculateRadius();
+   double turn = (b.xOrd() - a.xOrd())*(c.yOrd() - a.yOrd()) - (c.xOrd() - a.xOrd())*(b.yOrd() - a.yOrd());
+   if (turn > 0)
+   {
+      // trying to avoid exceptions, so track 'good' candidates as
+      // 'downward facing' circles
+      //
+      badCandidate_ = true;
+      return;
+   }
+
+   ensureMonotonicity();
+   calculateCenter();
+   calculateRadius();
 }
 
 bool Circle::valid() const
 {
+   if (badCandidate_) {
+      return false;
+   }
+
    // quick and dirty delta is good enough for my simple exercise.
    //
    const double delta(0.0001);
