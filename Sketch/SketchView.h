@@ -1,5 +1,7 @@
 #pragma once
 
+#include "SketchScene.h"
+
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
 
@@ -18,6 +20,6 @@ private slots:
 
 private:
 
-   QGraphicsScene m_scene;
+   SketchScene          m_scene;
    QGraphicsPixmapItem *m_pixmap;
 };

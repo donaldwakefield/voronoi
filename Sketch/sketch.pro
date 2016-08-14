@@ -1,5 +1,5 @@
-SOURCES += main.cxx SketchView.cxx
-HEADERS += SketchView.h
+SOURCES += main.cxx SketchView.cxx SketchScene.cxx
+HEADERS += SketchView.h SketchScene.h
 
 sources.files = $$SOURCES \
     $$HEADERS \

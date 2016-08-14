@@ -66,10 +66,5 @@ void SketchView::setupScene()
    font.setBold(true);
    QFontMetrics fontMetrics(font);
 
-   QPushButton *press = new QPushButton;
-   press->setText(tr("Press me"));
-   connect(press, SIGNAL(clicked()), SLOT(togglePopup()));
-   m_scene.addWidget(press);
-
-   press->move(905, 905);
+   connect(&m_scene, SIGNAL(poke()), this, SLOT(togglePopup()));
 }
