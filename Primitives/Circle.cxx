@@ -18,7 +18,9 @@ Circle::Circle(const Site &a, const Site &b, const Site &c) :
    if (turn > 0)
    {
       // trying to avoid exceptions, so track 'good' candidates as
-      // 'downward facing' circles
+      // 'downward facing' circles. However, it is not clear that this
+      // test is useful. I need to do more sketching of the
+      // possibilities...
       //
       badCandidate_ = true;
       return;
