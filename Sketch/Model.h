@@ -11,8 +11,9 @@
 /*!
  * \class Model is the protocol class for data models under a
  *        SketchScene
- * \brief Models are *square*, and follow standard cartesian
- *        coordinates (double x,y, ascending to the right and up).
+ * \brief Models are *square* (-ish), and follow standard cartesian
+ *        coordinates (double x,y, ascending to the right and up). Not
+ *        sure if QRectF will play nicely with this choice...
  */
 class Model : public QObject
 {
@@ -20,15 +21,18 @@ class Model : public QObject
 
 public:
 
-   Model(const SiteVec &svec) : siteVec_(svec) {};
+   Model(const SiteVec &svec);
    virtual ~Model() {};
 
    const SiteVec &sites() { return siteVec_; }
-   QRectF bounds() const;
+   QRectF bounds() const { return bounds_; }
 
 signals:
 
 private:
 
-   SiteVec siteVec_;
+   QRectF boundsCache();
+
+   SiteVec        siteVec_;
+   mutable QRectF bounds_;
 };
